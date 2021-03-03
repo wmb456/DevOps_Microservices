@@ -21,13 +21,13 @@ install:
 	)
 
 build-container:
-	docker build -t project-app:0.0.1 .
+	docker build -t udacity-app:0.0.1 .
 
 run-container:
-	docker run -ti --rm --name udacity-app project-app:0.0.1
+	docker run -ti --rm --name udacity-app udacity-app:0.0.1
 
 run-container-sh:
-	docker run -ti --rm --name udacity-app-sh project-app:0.0.1 /bin/sh
+	docker run -ti --rm --name udacity-app-sh udacity-app:0.0.1 /bin/sh
 
 test:
 	# Additional, optional, tests could go here
