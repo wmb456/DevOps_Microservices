@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-IMAGE_NAME=udacity-app
-IMAGE_TAG=0.0.1
-HOST_PORT=8000
-
+. config.sh
 
 # Step 1:
 docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
