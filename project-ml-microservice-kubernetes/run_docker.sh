@@ -1,12 +1,18 @@
 #!/usr/bin/env bash
 
-## Complete the following steps to get Docker running locally
+IMAGE_NAME=udacity-app
+IMAGE_TAG=0.0.1
+HOST_PORT=8000
+
 
 # Step 1:
-# Build image and add a descriptive tag
+docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
 
 # Step 2: 
-# List docker images
+docker images ${IMAGE_NAME}
 
 # Step 3: 
-# Run flask app
+echo
+echo "expose service on: http://$(nslookup -type=A $(hostname)  | grep Name | awk '{ print $2}'):${HOST_PORT}"
+echo 
+docker run --rm -p ${HOST_PORT}:80 ${IMAGE_NAME}:${IMAGE_TAG}
