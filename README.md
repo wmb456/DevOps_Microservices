@@ -1,4 +1,30 @@
-<include a CircleCI status badge, here>
+[![CircleCI](https://circleci.com/gh/wmb456/DevOps_Microservices.svg?style=svg)](https://circleci.com/gh/wmb456/DevOps_Microservices)
+
+## important
+
+To be able to run the scripts you must provide your own local configuration in _config.sh_ containing the following variables:
+
+| name       | content                                        | example          |
+|------------|------------------------------------------------|------------------|
+| IMAGE_NAME | name of the docker image                       | udacity-app      | 
+| IMAGE_TAG  | docker image tag                               | 0.0.1            |
+| HOST_PORT  | port the service is exposed on the docker host | 8000             |
+| HUB_USER   | GITHUB user ID                                 | foo              |
+| HUB_MAIL   | eMail address of the github user               | foo@example.com  |
+
+**Note:** This file is ignored by git.
+
+Example _config.sh_:
+```
+#!/bin/bash
+
+IMAGE_NAME=udacity-app
+IMAGE_TAG=0.0.1
+HOST_PORT=8000
+
+HUB_USER=foo
+HUB_MAIL=foo@example.com
+```
 
 ## Project Overview
 
@@ -28,27 +54,7 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 * Create a virtualenv and activate it
 * Run `make install` to install the necessary dependencies
 
-Provide your own local configuration in _config.sh_ containing the following variables:
 
-| name       | content                                        | example          |
-|------------|------------------------------------------------|------------------|
-| IMAGE_NAME | name of the docker image                       | udacity-app      | 
-| IMAGE_TAG  | docker image tag                               | 0.0.1            |
-| HOST_PORT  | port the service is exposed on the docker host | 8000             |
-| HUB_USER   | GITHUB user ID                                 | foo              |
-| HUB_MAIL   | eMail address of the github user               | foo@example.com  |
-
-Example _config.sh_:
-```
-#!/bin/bash
-
-IMAGE_NAME=udacity-app
-IMAGE_TAG=0.0.1
-HOST_PORT=8000
-
-HUB_USER=foo
-HUB_MAIL=foo@example.com
-```
 
 ### Running `app.py`
 
