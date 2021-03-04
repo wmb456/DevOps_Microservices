@@ -37,9 +37,14 @@ test:
 lint-docker:
 	docker run -i --rm  hadolint/hadolint:latest-alpine < Dockerfile
 
+lint-local:
+	hadolint Dockerfile
+
 lint-python:
 	pylint --disable=R,C,W1203 app.py
 
-lint: lint-docker lint-python
+lint-dockerized: lint-docker lint-python
 
-all: install lint test
+lint: lint-local lint-python
+
+all: install lint-local test
