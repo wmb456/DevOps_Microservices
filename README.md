@@ -52,9 +52,17 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 ## Setup the Environment
 
 * Create a virtualenv and activate it
+  * creation of venv can be done by running
+  ```
+  make setup
+  ```
+  * note that the venv is created in _.devops_
+  * you might override the used python version by setting PYTHON in the env to the desired version (e.g. python3.9)
 * Run `make install` to install the necessary dependencies
-
-
+  * note that pylint is not part of the bare application dependencies and therefore must be installed manually, e.g. run
+  ```
+  pip install pylint
+  ```
 
 ### Running `app.py`
 
@@ -62,9 +70,16 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 2. Run in Docker:  `./run_docker.sh`
 3. Run in Kubernetes:  `./run_kubernetes.sh`
 
+The service is provided on port _80_, see _make\_prediction.sh_ for an example on how to call the service.
+
 ### Kubernetes Steps
 
 * Setup and Configure Docker locally
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
 * Run via kubectl
+
+Just use C9 and install minicube + kubectl.
+
+Note: as the stock EC2 instance will only provide 10G (8G free) of disk space you should resize the root fs to 20G before you start to install anything.
+
