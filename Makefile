@@ -18,6 +18,9 @@ install:
 	  . .devops/bin/activate; \
 	  pip install --upgrade pip; \
 	  pip install -r requirements.txt; \
+	  pip install pylint; \
+	  wget -O ./hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64; \
+	  chmod +x ./hadolint \
 	)
 
 build-container:
@@ -38,10 +41,12 @@ lint-docker:
 	docker run -i --rm  hadolint/hadolint:latest-alpine < Dockerfile
 
 lint-local:
-	hadolint Dockerfile
+	./hadolint Dockerfile
 
 lint-python:
-	pylint --disable=R,C,W1203 app.py
+	(\
+		. .devops/bin/activate && pylint --disable=R,C,W1203 app.py \
+	)
 
 lint-dockerized: lint-docker lint-python
 
